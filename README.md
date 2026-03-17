@@ -162,15 +162,13 @@ Open these files:
 - `apps/web/app/journey/[id]/page.tsx`
 - `apps/web/hooks/useJourney.ts`
 
-## Suggested talking points
-
-Use wording like this:
+## Prez
 
 > I separated the project into UI, backend, and business-rules packages so I could show how the system would scale. The frontend is responsible for rendering a clean experience, the NestJS BFF is responsible for orchestration, and the journey engine contains the recommendation logic. That makes the business rules reusable and testable.
 
 > I also modeled AEM-style content by returning banner configuration from the backend instead of hardcoding it in the page. In a real platform, that content could come from AEM or another CMS.
 
-## Commands you may use during the interview
+## Commands for team to test
 
 ### Run both apps locally
 ```bash
@@ -188,78 +186,6 @@ pnpm --filter @avis/journey-engine test
 pnpm build
 ```
 
-## GitHub setup
-
-### Create a repo
-1. Create a free GitHub account
-2. Create a new repository, for example: `avis-journey-platform`
-3. Do not initialize it with another README
-
-### Push your code
-From the project root:
-
-```bash
-git init
-git add .
-git commit -m "Initial Avis journey platform demo"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/avis-journey-platform.git
-git push -u origin main
-```
-
-## Deploying the frontend on Vercel
-
-This monorepo is best deployed as:
-- **frontend on Vercel**
-- **backend on Render**
-
-Why:
-- Vercel is the fastest path for the Next.js app
-- Render is simpler for a long-running NestJS Node server
-
-### Frontend on Vercel
-1. Create a free Vercel account and connect GitHub
-2. Import the repository
-3. Set the **Root Directory** to `apps/web`
-4. Add this environment variable:
-
-```text
-NEXT_PUBLIC_API_BASE_URL=https://YOUR-BACKEND-URL.onrender.com
-```
-
-5. Deploy
-
-### Vercel build settings
-For this project, the default framework detection should pick up Next.js. If Vercel asks for install/build commands, use:
-
-- Install Command: `pnpm install`
-- Build Command: `pnpm build`
-- Output: leave default for Next.js
-
-## Deploying the backend on Render
-
-1. Create a free Render account and connect GitHub
-2. Create a new **Web Service**
-3. Select this repository
-4. Configure:
-   - Root Directory: `apps/bff`
-   - Build Command: `pnpm install --filter bff... && pnpm --filter bff build`
-   - Start Command: `pnpm --filter bff start`
-5. Add environment variable:
-
-```text
-PORT=10000
-```
-
-6. Deploy
-
-### Optional backend environment variable
-You can keep the default frontend origin during local development. For production you can set:
-
-```text
-CORS_ORIGIN=https://YOUR-FRONTEND-PROJECT.vercel.app
-```
-
 ## Local environment variables
 
 ### `apps/web/.env.local`
@@ -273,45 +199,3 @@ PORT=3001
 CORS_ORIGIN=http://localhost:3000
 ```
 
-## What to emphasize to the interviewer
-
-### Technical alignment
-- TypeScript everywhere
-- React hooks and reusable component patterns
-- Next.js App Router
-- NestJS BFF modules/services/controllers
-- pnpm monorepo
-- shared libraries
-- testable business logic
-
-### Product alignment
-- post-booking redirect strategy
-- vehicle upgrade
-- pre-check-in / e-receipt / biometric as next actions
-- content-driven experience
-
-## If deployment is taking too long
-Demo it locally. That is completely acceptable.
-
-Use this line:
-
-> I prioritized the working vertical slice and clean architecture first. The same repo is ready for deployment, but I wanted the product flow and service boundaries to be the strongest part of the demo.
-
-## Known simplifications
-This is intentionally a focused demo:
-- no database
-- no real auth
-- no real AEM
-- no real airline/rental APIs
-- no multi-brand theming
-- no full Storybook setup
-
-Those are easy extension points you can talk about if asked.
-
-## Good extension ideas if you have extra time
-- add Storybook for `ActionCard`, `StatusPill`, `HeroBanner`
-- add Playwright happy-path test
-- add brand theme switcher
-- add `e-receipt` action mutation
-- add pre-check-in route
-- add biometric eligibility explanation modal
