@@ -199,3 +199,9 @@ PORT=3001
 CORS_ORIGIN=http://localhost:3000
 ```
 
+## UI look and feel
+
+<img width="2532" height="1566" alt="image" src="https://github.com/user-attachments/assets/6815179a-43fb-4a08-b420-a3734f3efe50" />
+
+<img width="1203" height="738" alt="Screenshot 2026-03-17 at 4 43 39 AM" src="https://github.com/user-attachments/assets/e48d34a0-7e56-4280-b6dc-788f045516b2" />
+
