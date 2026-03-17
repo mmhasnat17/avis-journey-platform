@@ -1,0 +1,23 @@
+{
+  "name": "avis-journey-platform",
+  "private": true,
+  "packageManager": "pnpm@10.6.0",
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:bff": "pnpm --filter bff start:dev",
+    "dev": "concurrently \"pnpm dev:bff\" \"pnpm dev:web\"",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
+}
