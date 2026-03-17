@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# avis-journey-platform
-avis journey app tcs interview demo
-=======
 # Avis Journey Platform (Mini)
 
 A small, interview-ready monorepo that demonstrates the main ideas from the Avis UI Engineer role:
@@ -319,4 +315,3 @@ Those are easy extension points you can talk about if asked.
 - add `e-receipt` action mutation
 - add pre-check-in route
 - add biometric eligibility explanation modal
->>>>>>> 68b1187 (Initial Avis TCS journey platform demo)
